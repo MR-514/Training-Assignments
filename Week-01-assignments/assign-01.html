@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Geeting Card</title>
+
+    <style>
+        canvas{
+            border: 1px solid blue;
+            display: block;
+            margin:  100px auto;
+            background-color: #e39000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="500" height="500"></canvas>
+    <script>
+        var ctx = document.getElementById("can").getContext("2d");
+ 
+        setInterval(function(){
+
+            ctx.clearRect(0,0,500,500);
+            //diya
+            ctx.beginPath();
+            ctx.moveTo(250,330);
+            ctx.lineTo(275,270);
+            ctx.lineTo(250,220);
+            ctx.lineTo(225,270);
+            ctx.lineTo(250,330);
+            ctx.arc(250,300,150,0,(Math.PI / 180)*180,false);
+            ctx.fillStyle = "#630d07";
+            ctx.fill();
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.font = "30px Georgia";
+            ctx.fillText("Happy Diwali",160,50,);
+
+             //star
+             ctx.fillStyle = "yellow";
+            ctx.beginPath();
+            ctx.moveTo(50, 30);
+            ctx.lineTo(55, 45);
+            ctx.lineTo(75, 45);
+            ctx.lineTo(60, 55);
+            ctx.lineTo(65, 80);
+            ctx.lineTo(50, 65);
+            ctx.lineTo(35, 80);
+            ctx.lineTo(40, 55);
+            ctx.lineTo(25, 45);
+            ctx.lineTo(45, 45);
+            ctx.lineTo(50, 30);
+            ctx.closePath();
+            ctx.fill();
+
+
+            //random circle and squares to add effect
+
+            var boxX = Math.round(Math.random()*500);
+            var boxY = Math.round(Math.random()*500);
+            var boxH = Math.round(Math.random()*100);
+            var boxW = Math.round(Math.random()*100);
+            ctx.fillStyle = "rgba(255,239,15,0.5)";
+            ctx.fillRect(boxX,boxY,boxW,boxH);
+
+            var inx = Math.round(Math.random()*500);
+            var iny = Math.round(Math.random()*500);
+            var r = Math.round(Math.random()*50);
+            var a = (Math.PI/180)*360;
+            ctx.arc(inx,iny,r,0,a ,true);
+            ctx.fillStyle = "rgba(255,239,15,0.5)";
+            ctx.fill();
+        },1)
+    </script>
+    
+</body>
+</html>

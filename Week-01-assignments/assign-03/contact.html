@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs dunia || Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    </style>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+          <div class="container">
+            <h1 class="logo"><a href="index.html">JD</a></h1>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+
+      <section id="contact-form">
+        <div class="container">
+
+         <h1 class="text-primary">Employee Registration Portal</h1>
+
+        <form name="CandidateDetails" id="registrationForm" action="#" method="get">
+          
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input required  name ="fname" id = "fname" type="text"/>
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input required  name ="lname" id = "lname" type="text"/>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input required autocomplete="off" name ="email" id = "email" type="email"/>
+            </div>
+        
+            <div class="form-group">
+                <label for="uage">Age</label>
+                <input required min="20" max="70" name ="uage" id = "uage" type="number"/>
+
+            </div>
+
+            <div class="form-group">
+        
+                <label>Gender</label>
+                <input required  name ="gender" value="male"  type="radio"/>Male
+                <input required  name ="gender" value="female"  type="radio"/>Female
+        
+            </div>
+        
+            <div class="form-group">
+                <label for="addr">City</label>
+                <select required name="addr" id="addr">
+                    <option value="">--Please choose an option--</option>
+                        <option value="Banglore">Banglore</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Sambalpur">Sambalpur</option>
+                        <option value="Manglore">Manglore</option>
+                        <option value="Patna">Patna</option>
+                        <option value="Srinagar">Srinagar</option>
+                        <option value="Kanpur">Kanpur</option>
+                        <option value="Guwahati">Guwahati</option>
+                        <option value="Hassan">Hassan</option>
+                        <option value="Ramnagar">Ramnagar</option>
+                        <option value="Bidar">Bidar</option>
+                        <option value="Tumkur">Tumkur</option>
+                    </select>
+            </div>
+                
+                
+            <div class="form-group">
+                <label ><br>Select your Resume </label>
+                <input required type="file" id="resume" name="resume" accept=".pdf, .doc, .docx" />
+            </div>
+            <div class="form-group">
+                    
+                <br><label >Tentative date of joining
+                <input required type="date"/></label>
+            </div>
+            
+            
+            <div class="form-group">
+
+                <label > Select Position applying for</label>
+                <input id="developer" name="developer"  type="checkbox"/>Developer
+                <input id="designer" name="designer"  type="checkbox"/>Designer
+                <input id="finance" name="finance"  type="checkbox"/>Finance
+                <input id="HR" name="HR"  type="checkbox"/>Human Resourse
+                <input id="support" name="support" type="checkbox"/>Support Engieneer
+            </div>
+
+            <div class="form-group" >
+                <input onclick="storeInfo()" type="submit" class="btn" value="Submit">
+            </div>
+        </form>
+        </div>
+    </section>
+  
+      <footer id="main-footer">
+        <p>Jobs dunia &copy; 2023, All RIghts Reserved</p>
+      </footer>
+    
+      <script>
+          document.getElementById("uage");
+          uage.setCustomValidity("you must enter the age field");
+          uage.addEventListener("input",function(){
+              if(uage.value<20){
+                  uage.setCustomValidity("you are too young for organisation");
+              }
+              else if(uage.value>70){
+                  uage.setCustomValidity("you are too old for the organisation");
+              }
+              else{
+                  uage.setCustomValidity("");
+              }
+  
+          })
+          function storeInfo(){
+                alert("user info saved");
+            }
+      </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+
+    .container {
+        margin: auto;
+        max-width: 1100px;
+        overflow: auto;
+        padding: 0 20px;
+    }
+  
+    #contact-form {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    .text-primary {
+    color: #f7c08a;
+     }
+  
+    form {
+      width: 100%;
+      margin: 0 auto;
+    }
+     #contact-form .form-group {
+    margin-bottom: 20px;
+     }
+     #contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    }
+    #contact-form input {
+    padding: 5px;
+    border: 1px #ddd solid;
+    }
+    #contact-form input:focus{
+    outline: none;
+    border-color: #f7c08a;
+    }
+    .btn {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    background: #333;
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+    </style>
+</head>
+<body>
+    <section id="contact-form">
+        <div class="container">
+
+         <h1 class="text-primary">Employee Registration Portal</h1>
+
+        <form name="CandidateDetails" id="registrationForm" action="#" method="get">
+          
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input required  name ="fname" id = "fname" type="text"/>
+            </div>
+
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input required  name ="lname" id = "lname" type="text"/>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input required autocomplete="off" name ="email" id = "email" type="email"/>
+            </div>
+        
+            <div class="form-group">
+                <label for="uage">Age</label>
+                <input required min="20" max="70" name ="uage" id = "uage" type="number"/>
+
+            </div>
+
+        
+            <div class="form-group">
+                <label for="addr">City</label>
+                <select required name="addr" id="addr">
+                    <option value="">--Please choose an option--</option>
+                        <option value="Banglore">Banglore</option>
+                        <option value="Jaipur">Jaipur</option>
+                        <option value="Sambalpur">Sambalpur</option>
+                        <option value="Manglore">Manglore</option>
+                        <option value="Patna">Patna</option>
+                        <option value="Srinagar">Srinagar</option>
+                        <option value="Kanpur">Kanpur</option>
+                        <option value="Guwahati">Guwahati</option>
+                        <option value="Hassan">Hassan</option>
+                        <option value="Ramnagar">Ramnagar</option>
+                        <option value="Bidar">Bidar</option>
+                        <option value="Tumkur">Tumkur</option>
+                    </select>
+            </div>
+                
+            <div class="form-group">
+                    
+                <br><label for="doj">Tentative date of joining
+                <input required id="doj" type="date"/></label>
+            </div>
+            
+
+            <div class="form-group" >
+                <input onclick="storeInfo()" type="submit" class="btn" value="Submit">
+            </div>
+        </form>
+        </div>
+    </section>
+    
+      <script>
+          document.getElementById("uage");
+          uage.setCustomValidity("you must enter the age field");
+          uage.addEventListener("input",function(){
+              if(uage.value<20){
+                  uage.setCustomValidity("you are too young for organisation");
+              }
+              else if(uage.value>70){
+                  uage.setCustomValidity("you are too old for the organisation");
+              }
+              else{
+                  uage.setCustomValidity("");
+              }
+  
+          })
+
+        function storeInfo(){
+            if(navigator.onLine){
+            alert("user info saved on server");
+             }
+           else{
+                localStorage.setItem("firstName",document.getElementById("fname").value);
+                localStorage.setItem("lastName",document.getElementById("lname").value);
+                localStorage.setItem("email",document.getElementById("email").value);
+                localStorage.setItem("age",document.getElementById("uage").value);
+
+                localStorage.setItem("city",document.getElementById("addr").value);
+                localStorage.setItem("dateOfJoining",document.getElementById("doj").value);
+
+                alert("user info saved locally");
+        }
+            
+        }
+
+      
+
+      </script>
+</body>
+</html>
