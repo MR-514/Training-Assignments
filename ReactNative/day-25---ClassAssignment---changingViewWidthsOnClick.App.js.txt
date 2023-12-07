@@ -1,0 +1,68 @@
+import { useState } from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
+
+const styles = StyleSheet.create({
+  box: { width: "50%", height: 100, backgroundColor: "gray", marginBottom: 10 },
+  firstbox: { marginTop: 50 },
+});
+
+export default function App() {
+  let [widths, setWidth] = useState("50%");
+
+  let handleClick = () => {
+    if (widths == "50%") {
+      setWidth("100%");
+    } else {
+      setWidth("50%");
+    }
+  };
+
+  return (
+    <SafeAreaView>
+      <ScrollView>
+        <TouchableOpacity onPress={handleClick}>
+          <View style={[styles.box, styles.firstbox, { width: widths }]}></View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleClick}>
+          <View
+            style={[
+              { ...styles.box, backgroundColor: "cyan" },
+              { width: widths },
+            ]}
+          ></View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleClick}>
+          <View
+            style={[
+              { ...styles.box, backgroundColor: "yellow" },
+              { width: widths },
+            ]}
+          ></View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleClick}>
+          <View
+            style={[
+              { ...styles.box, backgroundColor: "black" },
+              { width: widths },
+            ]}
+          ></View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleClick}>
+          <View
+            style={[
+              styles.box,
+              { backgroundColor: "green" },
+              { width: widths },
+            ]}
+          ></View>
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
